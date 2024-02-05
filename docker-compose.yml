@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  streamlit:
+    container_name: streamlit
+    build:
+      context: ./apps/streamlit/
+      dockerfile: Dockerfile
+    volumes:
+      - ./apps/streamlit/:/apps/
+    ports:
+      - ${STREAMLIT_PORT}:${STREAMLIT_PORT}
