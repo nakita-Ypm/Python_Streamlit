@@ -8,7 +8,7 @@ from components import file_loader
 
 pages = {
     "Home": home,
-    "FinalCutPro": file_loader,
+    "XML Edit": file_loader,
     # Add more pages as needed
 }
 

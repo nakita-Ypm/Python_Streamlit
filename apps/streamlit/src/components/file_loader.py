@@ -1,34 +1,33 @@
-import pandas as pd
+import streamlit as st
+import xml.etree.ElementTree as ET
 
 
 def apply(st):
-    # タイトルの追加
-    st.title("ファイルアップロードのデモ")
+    st.title("XML Reader App")
 
     # ファイルのアップロード
     uploaded_file = st.file_uploader(
-        "CSVファイルをアップロードしてください", type=["csv"]
+        "XMLファイルをアップロードしてください", type=["xml"]
     )
 
-    # アップロードされたファイルがある場合
     if uploaded_file is not None:
-        # アップロードされたファイルをデータフレームに読み込み
-        data = pd.read_csv(uploaded_file)
+        st.success("ファイルがアップロードされました!")
 
-        # 読み込まれたデータの表示
-        st.write("アップロードされたデータ:", data)
-    else:
-        st.write("ファイルはまだアップロードされていません。")
+        # アップロードされたXMLファイルの内容を表示
+        content = uploaded_file.read()
+        st.code(content, language="xml")
 
-    # # URLパスによるページの切り替え
-    # page = st.sidebar.selectbox("Choose a page", ["Home", "About", "Contact"])
+        # XMLファイルを解析して要素ツリーを取得
+        root = read_xml(uploaded_file)
 
-    # if page == "Home":
-    #     st.title("Home Page")
-    #     # ここにHomeページのコンテンツを追加する
-    # elif page == "About":
-    #     st.title("About Page")
-    #     # ここにAboutページのコンテンツを追加する
-    # elif page == "Contact":
-    #     st.title("Contact Page")
-    #     # ここにContactページのコンテンツを追加する
+        # 要素ツリーの情報を表示
+        st.subheader("XMLファイルの要素ツリー:")
+        st.write(root)
+
+        # ここで必要な追加の処理を行うことができます
+
+
+def read_xml(file_path):
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+    return root
