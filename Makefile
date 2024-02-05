@@ -21,6 +21,9 @@ ens:
 exe:
 	docker compose exec streamlit python3 ./src/main.py
 
+fmt:
+	docker-compose exec streamlit black ./
+
 
 # python3 ./src/handler/ping_handler.py
 

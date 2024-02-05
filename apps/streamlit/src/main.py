@@ -1,8 +1,12 @@
-import streamlit as st
+import app
 
+import import_path as imp
 
-def main():
-    st.write("Hello World!")
+imp.import_path("adapter")
+
+import adapter
+
+app = app.init()
 
 if __name__ == "__main__":
-    main()
+    adapter.serveApp(app)
