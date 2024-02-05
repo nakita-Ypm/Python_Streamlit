@@ -7,8 +7,5 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./apps/streamlit/:/apps/
-    # environment:
-    #   - FLASK_APP=${FLASK_APP}
-    #   - FLASK_ENV=${FLASK_ENV}
     ports:
       - ${STREAMLIT_PORT}:${STREAMLIT_PORT}

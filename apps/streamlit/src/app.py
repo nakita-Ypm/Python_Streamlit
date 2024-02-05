@@ -1,9 +1,9 @@
 import streamlit as st
 import import_path as imp
 
-imp.import_path("components")
+imp.import_path("pages")
 
-from components import file_loader
+from pages import page
 
 
 def init():
@@ -11,4 +11,4 @@ def init():
 
 
 def apply_components(st):
-    file_loader.apply(st)
+    page.apply(st)
