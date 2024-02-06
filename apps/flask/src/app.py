@@ -10,6 +10,7 @@ def import_path(path):
 import_path('handler')
 
 from handler import ping_handler
+from handler import xml_parse_handler
 
 def init():
     app = Flask(__name__)
@@ -18,4 +19,5 @@ def init():
 
 def apply_handlers(app):
     ping_handler.apply(app)
+    xml_parse_handler.apply(app)
     return app
