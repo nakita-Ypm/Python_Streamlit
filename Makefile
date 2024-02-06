@@ -32,3 +32,8 @@ fmt:
 # python3 ./src/main.py
 
 # streamlit run ./src/main.py
+
+# python3 ./src/pages/import_path.py
+
+
+# streamlit run ./src/apps.py
