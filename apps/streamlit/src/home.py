@@ -2,7 +2,12 @@ import streamlit as st
 
 
 def main():
-    st.title("Python FrontEnd Streamlit Backend Flask")
+    st.title("Python Streamlit Flask App")
+
+    st.write("Python Streamlit Flaskで作成したアプリです。")
+
+    # リンクを表示
+    st.markdown("[File_Edit](http://localhost:8501/File_Edit)")
 
 
 if __name__ == "__main__":
