@@ -7,10 +7,11 @@ from pages.file_edit import index as fe
 FILE_EDIT = {
     "title": "XML Reader App",
     "api_endpoint": "http://flask:3001/parse_xml",
-    "upload_title": "Upload XML",
-    "flie_format": "xml_file",
-    "type": "xml",
+    "flie_type": "xml_file",
     "button": "Parse XML",
+    "upload_title": "Upload XML",
+    "type": "xml",
+    "decode": "utf-8",
 }
 
 fe.apply(FILE_EDIT)
