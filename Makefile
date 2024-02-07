@@ -37,3 +37,6 @@ fmt:
 
 
 # streamlit run ./src/home.py
+
+sr:
+	docker-compose exec streamlit streamlit run ./src/home.py
