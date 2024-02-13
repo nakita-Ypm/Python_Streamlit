@@ -10,6 +10,7 @@ crm:
 	docker container rm `docker container ls  -aq`
 
 up:
+	cp .env.example .env
 	docker compose up -d
 
 down:
@@ -26,20 +27,6 @@ fmt:
 
 enf:
 	docker compose exec -it flask /bin/bash
-
-
-# python3 ./src/handler/ping_handler.py
-
-# python3 ./src/adapter/adapter.py
-
-# python3 ./src/main.py
-
-# streamlit run ./src/main.py
-
-# python3 ./src/pages/import_path.py
-
-
-# streamlit run ./src/home.py
 
 sr:
 	docker-compose exec streamlit streamlit run ./src/home.py
