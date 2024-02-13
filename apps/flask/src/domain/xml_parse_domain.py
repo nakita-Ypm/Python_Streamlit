@@ -1,29 +1,15 @@
 import re
 from lxml import etree
 
+import import_path as imp
+
+imp.import_path("service")
 from service import google_translate_service as gt
 
 def lxml(xml_content):
-    root = etree.fromstring(xml_content)
-    titles = root.xpath('.//title')
-    
     res = ""
-    
-    for title in titles:
-        parent = title.getparent()
-        parent_offset, parent_start = get_parent_info(parent)
-
-        name, offset, duration = map(title.get, ['name', 'offset', 'duration'])
-
-        start, end = calculate_time(parent_offset, offset, parent_start, duration)
-
-        start_time = to_hms_ms(start)
-        end_time = to_hms_ms(end)
-
-        text_styles = title.xpath('.//text-style')
-        text_style = get_text_style(text_styles, name)
-
-        res += cerate_srt(start_time, end_time, text_style)
+    root = etree.fromstring(xml_content)
+    res = root.xpath('.//title')
 
     return res
 
