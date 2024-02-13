@@ -1,7 +1,7 @@
 import re
 from lxml import etree
 
-
+from service import google_translate_service as gt
 
 def lxml(xml_content):
     root = etree.fromstring(xml_content)
@@ -83,4 +83,3 @@ def zp(num, length=2):
 ## 文字処理
 def cerate_srt(start, end, text):
     return f"{start} --> {end}\n{text}\n\n"
-    

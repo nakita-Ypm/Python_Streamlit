@@ -3,9 +3,10 @@ from flask import Flask, request, jsonify
 import import_path as imp
 
 imp.import_path("domain")
+imp.import_path("service")
 
 from domain import xml_parse_domain as xp
-from domain import google_translate_domain as gt
+from service import google_translate_service as gt
 
 def apply(app):
     @app.route("/parse_xml", methods=["POST"])
@@ -19,7 +20,8 @@ def apply(app):
             xml_content = xml_file.read()
         
             res = xp.lxml(xml_content)
-            print(gt.reslt())
+
+            print(xp.gth())
 
             return res, 200
         except Exception as e:
