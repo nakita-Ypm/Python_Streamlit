@@ -18,12 +18,12 @@ def apply(req):
         if text is not None:
             download_txt_button(text)
 
-    
 
 def push_button(req, uploaded_file):
     if st.button(req["button"]):
         res = post.post_file(req["api_endpoint"], req["flie_type"], uploaded_file)
         return res.text
 
+
 def download_txt_button(text):
-    st.download_button('Download',text)
+    st.download_button("Download", text)
