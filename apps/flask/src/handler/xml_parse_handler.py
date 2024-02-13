@@ -5,6 +5,7 @@ import import_path as imp
 imp.import_path("domain")
 
 from domain import xml_parse_domain as xp
+from domain import google_translate_domain as gt
 
 def apply(app):
     @app.route("/parse_xml", methods=["POST"])
@@ -18,6 +19,7 @@ def apply(app):
             xml_content = xml_file.read()
         
             res = xp.lxml(xml_content)
+            print(gt.reslt())
 
             return res, 200
         except Exception as e:
