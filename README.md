@@ -5,6 +5,11 @@
 
 &emsp;It's not a perfect application. Please note that in rare cases, a timeout error may occur.
 
+### .env
+```
+cp .env.example .env
+```
+
 ### Container start
 ```
 make up
