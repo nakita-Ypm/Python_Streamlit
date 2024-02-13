@@ -7,7 +7,6 @@ imp.import_path("service")
 from service import google_translate_service as gt
 
 def lxml(xml_content):
-    res = ""
     root = etree.fromstring(xml_content)
     res = root.xpath('.//title')
 
