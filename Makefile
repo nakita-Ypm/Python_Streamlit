@@ -24,6 +24,9 @@ exe:
 fmt:
 	docker-compose exec streamlit black ./
 
+enf:
+	docker compose exec -it flask /bin/bash
+
 
 # python3 ./src/handler/ping_handler.py
 
@@ -36,4 +39,7 @@ fmt:
 # python3 ./src/pages/import_path.py
 
 
-# streamlit run ./src/apps.py
+# streamlit run ./src/home.py
+
+sr:
+	docker-compose exec streamlit streamlit run ./src/home.py

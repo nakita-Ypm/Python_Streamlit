@@ -9,3 +9,26 @@ services:
       - ./apps/streamlit/:/apps/
     ports:
       - ${STREAMLIT_PORT}:${STREAMLIT_PORT}
+    networks:
+      - app_network
+
+
+  flask:
+    container_name: flask
+    build:
+      context: ./apps/flask/
+      dockerfile: Dockerfile
+    volumes:
+      - ./apps/flask/:/apps/
+    environment:
+      - FLASK_APP=${FLASK_APP}
+      - FLASK_ENV=${FLASK_ENV}
+    ports:
+      - ${FLASK_PORT}:${FLASK_PORT}
+
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
