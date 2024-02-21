@@ -24,9 +24,9 @@ def get_parent_info(parent):
         return None
     return parent.get('offset'), parent.get('start')
 
-## text-styleの情報を取得する nameはNoneの場合があるので、その場合はnameを返す 
-def get_text_style(text_styles, name):
-    return next((text_style.text for text_style in text_styles if text_style.text is not None), name)
+## text-styleの情報を取得する text_styleが、Noneの場合があるので、その場合は"None"を返す
+def get_text_style(text_styles):
+    return next((text_style.text for text_style in text_styles if text_style.text is not None), "None")
 
 ## 文字列から秒数を取得する
 def get_time(input_str):
@@ -66,5 +66,5 @@ def zp(num, length=2):
     return str(num).zfill(length)
 
 ## 文字処理
-def cerate_srt(start, end, text):
-    return f"{start} --> {end}\n{text}\n\n"
+def cerate_srt(count, start, end, text):
+    return f"{count}\n{start} --> {end}\n{text}\n\n"

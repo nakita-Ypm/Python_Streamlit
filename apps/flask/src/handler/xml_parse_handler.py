@@ -23,11 +23,13 @@ def apply(app):
 
             lxml = xp.lxml(xml_content)
 
+            count = 0
+
             for l in lxml:
                 parent = l.getparent()
                 parent_offset, parent_start = xp.get_parent_info(parent)
 
-                name, offset, duration = map(l.get, ['name', 'offset', 'duration'])
+                offset, duration = map(l.get, ['offset', 'duration'])
 
                 start, end = xp.calculate_time(parent_offset, offset, parent_start, duration)
 
@@ -35,9 +37,11 @@ def apply(app):
                 end_time = xp.to_hms_ms(end)
 
                 text_styles = l.xpath('.//text-style')
-                text_style = xp.get_text_style(text_styles, name)
+                text_style = xp.get_text_style(text_styles)
 
-                res += xp.cerate_srt(start_time, end_time, gt.google_translation(text_style))
+                if text_style != "None":
+                    count = count + 1
+                    res += xp.cerate_srt(count, start_time, end_time, gt.google_translation(text_style))
             
             return res, 200
         except Exception as e:
